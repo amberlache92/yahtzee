@@ -13,9 +13,10 @@ $(document).ready(function(){
 	   $('img').height(50);
 	};
 
-	
-	$('.dice').on('click', 'img', function(){
-        $(this).addClass('selected');
+
+	$('.die').click(function(){
+         $(this).toggleClass('selected');
+
 	});
 
 $('.button').click(function(){
