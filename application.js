@@ -4,8 +4,10 @@ $(document).ready(function(){
   var die3=$('.die3');
   var die4=$('.die4');
   var die5=$('.die5');
+
+
   
-  
+  //roll function
 	function roll(die){
 	    var rando = Math.floor(Math.random()*6)+1;
 	     die.html("<img  src=images/die"+rando+".png>");
@@ -15,19 +17,21 @@ $(document).ready(function(){
 
 
 	$('.die').click(function(){
-         $(this).toggleClass('selected');
-
-	});
-
+         $(this).toggleClass('selected');   //adds border around die if clicked
+  });
+	
+//attaches roll funcition to each die
 $('.button').click(function(){
 
-   roll(die1);
-  roll(die2);
-  roll(die3);
-  roll(die4);
-  roll(die5);
+  var dice =[die1,die2,die3,die4,die5];
 
-//   $('img').addClass('selected');
+  for(i=0; i<dice.length;i++){
+	  	 if (!dice[i].hasClass('selected')){
+	  	 	 roll(dice[i]);
+	  	 }
+  	 //}
+  }
+	 
 });
 
 
