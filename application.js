@@ -4,7 +4,7 @@ $(document).ready(function(){
   var die3=$('.die3');
   var die4=$('.die4');
   var die5=$('.die5');
-
+  var turns=3;
 
   
   //roll function
@@ -19,22 +19,27 @@ $(document).ready(function(){
 	$('.die').click(function(){
          $(this).toggleClass('selected');   //adds border around die if clicked
   });
-	
+
 //attaches roll funcition to each die
 $('.button').click(function(){
+    for(i=0; i<=turns; turns--){
+	      if(turns>0){
+		    var dice =[die1,die2,die3,die4,die5];
 
-  var dice =[die1,die2,die3,die4,die5];
+			  for(i=0; i<dice.length;i++){
+				  	 if (!dice[i].hasClass('selected')){
+				  	 	 roll(dice[i]);
+				  	 }
+			  	 
+			     }
+	      
+		  }
+		  else{
+			$('.warning').html('Pick a category!');
+		}
+	}
 
-  for(i=0; i<dice.length;i++){
-	  	 if (!dice[i].hasClass('selected')){
-	  	 	 roll(dice[i]);
-	  	 }
-  	 //}
-  }
-	 
-});
-
-
+  });   //button function
 
 
 

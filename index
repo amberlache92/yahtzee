@@ -130,6 +130,7 @@
 		 		
 	 	</section>
 	 	<button class="button">ROll</button>
+	 	<span class="warning"></span>
 	
 
 
