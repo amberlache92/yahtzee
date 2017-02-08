@@ -5,13 +5,18 @@ $(document).ready(function(){
   var die4=$('.die4');
   var die5=$('.die5');
   var turns=3;
-
+  var dice;
+  var dice_value = new Array(5);
   
   //roll function
-	function roll(die){
-	    var rando = Math.floor(Math.random()*6)+1;
+	function roll(die,i){
+	    rando = Math.floor(Math.random()*6)+1;
+	    
 	     die.html("<img  src=images/die"+rando+".png>");
-	     
+	      die.find('img').attr('class', rando);
+	      
+          dice_value[i]=rando;
+          console.log(dice_value);
 	   $('img').height(50);
 	};
 
@@ -24,15 +29,20 @@ $(document).ready(function(){
 $('.button').click(function(){
     for(i=0; i<=turns; turns--){
 	      if(turns>0){
-		    var dice =[die1,die2,die3,die4,die5];
+		    dice =[die1,die2,die3,die4,die5];
 
 			  for(i=0; i<dice.length;i++){
-				  	 if (!dice[i].hasClass('selected')){
-				  	 	 roll(dice[i]);
+				  	 if (!dice[i].hasClass('selected')){ 
+				  	 	 roll(dice[i],i);
+	                
+
 				  	 }
-			  	 
+			        else{
+			        	// not to change value if selcted
+			        	!roll(dice[i],i);
+			        }
 			     }
-	      
+	       
 		  }
 		  else{
 			$('.warning').html('Pick a category!');
@@ -40,7 +50,6 @@ $('.button').click(function(){
 	}
 
   });   //button function
-
 
 
 });
