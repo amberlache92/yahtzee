@@ -27,27 +27,32 @@ $(document).ready(function(){
 
 //attaches roll funcition to each die
 $('.button').click(function(){
-    for(i=0; i<=turns; turns--){
+   
+	     
+	 for(i=0; i<=turns; turns--){
 	      if(turns>0){
 		    dice =[die1,die2,die3,die4,die5];
 
 			  for(i=0; i<dice.length;i++){
+			  	   	
+			  	    
 				  	 if (!dice[i].hasClass('selected')){ 
-				  	 	 roll(dice[i],i);
-	                
-
-				  	 }
-			        else{
-			        	// not to change value if selcted
-			        	!roll(dice[i],i);
-			        }
+				  	 	  roll(dice[i],i);
+	              }
+			       
+                     
+			     
 			     }
-	       
+	        
 		  }
 		  else{
 			$('.warning').html('Pick a category!');
 		}
+
+
 	}
+		  
+		
 
   });   //button function
 
