@@ -35,11 +35,40 @@ $(document).ready(function(){
 	$('.die').click(function(){
          $(this).toggleClass('selected');   //adds border around die if clicked
   });
-
-
-function calculate(){
+// 3 of a kind
+function threeOfKind(){
+	var threeOfKind=0;
+	dice_value.sort();
+	console.log(dice_value);
+	for(var i=0; i< dice_value.length; i++){
+		if(dice_value[0]==dice_value[1] && dice_value[0]==dice_value[2]||
+		   dice_value[1]== dice_value[2]&& dice_value[2]==dice_value[3]|| 
+			dice_value[2]==dice_value[3]&& dice_value[3]==dice_value[4]){
+            
+               threeOfKind += dice_value[i];
+               $('.three_of_kind').html(threeOfKind);
+		}
+	}
+	 return threeOfKind;
+}
+//four of a kind
+function fourOfKind(){
+	var fourOfKind=0;
+	dice_value.sort();
+	for(var i=0; i<dice_value.length;i++){
+		if(dice_value[0]==dice_value[1]&&dice_value[0]==dice_value[2]
+			&&dice_value[0]==dice_value[3]||dice_value[1]==dice_value[2]&&dice_value[2]==dice_value[3]
+			&&dice_value[3]==dice_value[4] ){
+			fourOfKind+= dice_value[i];
+		$('.four_of_kind').html(fourOfKind);
+		}
+	}
+	return fourOfKind;
+}
+//fucntion to calculate the first 6 categories
+function firstSix(){
     for(var i=0; i< dice_value.length;i++){
-
+    
     	
 	   if( dice_value[i] == 1){
 	   	 
@@ -89,9 +118,12 @@ function calculate(){
          
 	
 }
+
 $('.button2').click(function(){
 
-    calculate();
+    firstSix();
+    threeOfKind();
+    fourOfKind();
 });
 
 
