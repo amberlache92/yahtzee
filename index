@@ -22,33 +22,33 @@
 	 	<tr>
 	 		<td>Aces</td>
 	 		<td>Sum of all the ones</td>
-	 		<td class="aceScore">50</td>
+	 		<td class="score aceScore"></td>
 	 	</tr>
 	 		<tr>
 	 		<td>Twos</td>
 	 		<td>Sum of all the twos</td>
-	 		<td class="twoScore"></td>
+	 		<td class="score twoScore"></td>
 	 	</tr>
 	 		<tr>
 	 		<td>Threes</td>
 	 		<td>Sum of all the threes</td>
-	 		<td class="threeScore"></td>
+	 		<td class="score threeScore"></td>
 	 	</tr>
 	 		<tr>
 	 		<td>Fours</td>
 	 		<td>Sum of all the fours</td>
-	 		<td class="fourScore"></td>
+	 		<td class="score fourScore"></td>
 	 	</tr>
 	 		<tr>
 	 		<td>Fives</td>
 	 		<td>Sum of all the fives</td>
-	 		<td class="fiveScore"></td>
+	 		<td class="score fiveScore"></td>
 
 	 	</tr>
 	 	<tr>
 	 		<td>Sixes</td>
 	 		<td>Sum of all the sixes</td>
-	 		<td class="sixScore"></td>
+	 		<td class="score sixScore"></td>
 	 	</tr>
 	 	 <tr>
 	 		<td colspan ='2'>Total</td>
@@ -72,38 +72,38 @@
 	 	<tr>
 	 		<td>3 of a Kind</td>
 	 		<td>SUm of all dice</td>
-	 		<td class="aceScore"></td>
+	 		<td class="three_of_kind"></td>
 	 	</tr>
 	 		<tr>
 	 		<td>4 of a kind</td>
 	 		<td>Sum of all dice</td>
-	 		<td class="twoScore"></td>
+	 		<td class="four_of_kind"></td>
 	 	</tr>
 	 		<tr>
 	 		<td>Full House</td>
 	 		<td>Score 35</td>
-	 		<td class="threeScore"></td>
+	 		<td class="fullhouse"></td>
 	 	</tr>
 	 		<tr>
 	 		<td>sm. straight</td>
 	 		<td>Score 30</td>
-	 		<td class="fourScore"></td>
+	 		<td class="sm"></td>
 	 	</tr>
 	 		<tr>
 	 		<td>lg. Straight</td>
 	 		<td>score 40</td>
-	 		<td class="fiveScore"></td>
+	 		<td class="lg"></td>
 
 	 	</tr>
 	 	<tr>
 	 		<td>Yahtzee</td>
 	 		<td>Score yatzee</td>
-	 		<td class="sixScore"></td>
+	 		<td class="yatzee"></td>
 	 	</tr>
 	 	<tr>
 	 		<td>Chance</td>
 	 		<td>sum of all dice</td>
-	 		<td class="sixScore"></td>
+	 		<td class="chance"></td>
 	 	</tr>
 	 	 <tr>
 	 		<td colspan ='2'>Lower Total</td>
@@ -131,7 +131,8 @@
 	 	</section>
 	 	<button class="button">ROll</button>
 	 	<span class="warning"></span>
-	
+	 	<button class="button2">Calculate</button>
+	 
 
 
 	 </table>

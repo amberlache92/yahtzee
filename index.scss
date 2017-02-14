@@ -53,6 +53,10 @@ table{
 	width:150px;
 
 }
+.button2{
+@extend .button;
+ left: 600px;
+}
 .selected{
 	border:2px solid yellow;
 }
