@@ -82,7 +82,7 @@
 	 		<tr>
 	 		<td>Full House</td>
 	 		<td>Score 35</td>
-	 		<td class="fullhouse"></td>
+	 		<td class="fullHouse"></td>
 	 	</tr>
 	 		<tr>
 	 		<td>sm. straight</td>
