@@ -65,6 +65,75 @@ function fourOfKind(){
 	}
 	return fourOfKind;
 }
+//full house
+function fullHouse(){
+	var fullHouse=false;
+	var score=0;
+	dice_value.sort();
+	for(var i=0; i< dice_value.length;i++){
+		if(dice_value[0]==dice_value[1]&&
+			dice_value[2]==dice_value[3]&&
+			 dice_value[3]==dice_value[4]||
+			 dice_value[0]==dice_value[1]&& dice_value[1]==dice_value[2]&&
+			  dice_value[3]==dice_value[4]){
+			fullHouse = true;
+		
+		}
+	}
+	  if(fullHouse){
+         score+=35;
+	  	 $('.fullHouse').html(score);
+	  }
+	 
+	return fullHouse;
+}
+//sm straight
+function smstraight(){
+	var score=0;
+	var x=dice_value.sort();
+	    x= x.join("");
+	 var r1= /\B(1234)/g;
+	    var a=x.match(r1);
+	 var r2= /\B(2345)/g;
+         var b= x.match(r2);
+	 var r3= /\B(3456)/g; 
+	     var c= x.match(r3);
+	if(a=="1234" || b=="2345"|| c=="3456"){
+		score+= 30;
+		$('.sm').html(score);
+	}
+
+}
+//lg straight
+function lgstraight(){
+	var score =0;
+	  var x= dice_value.sort();
+	     x=x.join("");
+	     if(x=="12345"|| "23456"){
+	     	score+=40;
+	     	
+	     }
+	     $('.lg').html(score);
+}
+//chance
+function chance(){
+	var score=0;
+	for(var i=0; i<dice_value.length;i++){
+		 score += dice_value[i];
+
+	$('.chance').html(score);  
+	}
+	return score;
+}
+//yahtzee
+function yahtzee(){
+	var score=0;
+	if(dice_value[0]==dice_value[1]&& dice_value[1]== dice_value[2]
+		&& dice_value[2]==dice_value[4]){
+       score+=50;
+   $('.yatzee').html(score);
+	}
+}
 //fucntion to calculate the first 6 categories
 function firstSix(){
     for(var i=0; i< dice_value.length;i++){
@@ -124,6 +193,11 @@ $('.button2').click(function(){
     firstSix();
     threeOfKind();
     fourOfKind();
+    fullHouse();
+    smstraight();
+    lgstraight();
+    chance();
+    yahtzee();
 });
 
 
