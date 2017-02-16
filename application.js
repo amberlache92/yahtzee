@@ -109,11 +109,12 @@ function lgstraight(){
 	var score =0;
 	  var x= dice_value.sort();
 	     x=x.join("");
-	     if(x=="12345"|| "23456"){
+	     console.log(x);
+	     if(x=="12345"|| x=="23456"){
 	     	score+=40;
-	     	
+	     	    $('.lg').html(score);
 	     }
-	     $('.lg').html(score);
+	 
 }
 //chance
 function chance(){
