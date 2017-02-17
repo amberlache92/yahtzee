@@ -72,38 +72,38 @@
 	 	<tr>
 	 		<td>3 of a Kind</td>
 	 		<td>SUm of all dice</td>
-	 		<td class="three_of_kind"></td>
+	 		<td class=" score three_of_kind"></td>
 	 	</tr>
 	 		<tr>
 	 		<td>4 of a kind</td>
 	 		<td>Sum of all dice</td>
-	 		<td class="four_of_kind"></td>
+	 		<td class=" score four_of_kind"></td>
 	 	</tr>
 	 		<tr>
 	 		<td>Full House</td>
 	 		<td>Score 35</td>
-	 		<td class="fullHouse"></td>
+	 		<td class="score fullHouse"></td>
 	 	</tr>
 	 		<tr>
 	 		<td>sm. straight</td>
 	 		<td>Score 30</td>
-	 		<td class="sm"></td>
+	 		<td class="score sm"></td>
 	 	</tr>
 	 		<tr>
 	 		<td>lg. Straight</td>
 	 		<td>score 40</td>
-	 		<td class="lg"></td>
+	 		<td class="score lg"></td>
 
 	 	</tr>
 	 	<tr>
 	 		<td>Yahtzee</td>
 	 		<td>Score yatzee</td>
-	 		<td class="yatzee"></td>
+	 		<td class="score yatzee"></td>
 	 	</tr>
 	 	<tr>
 	 		<td>Chance</td>
 	 		<td>sum of all dice</td>
-	 		<td class="chance"></td>
+	 		<td class="score chance"></td>
 	 	</tr>
 	 	 <tr>
 	 		<td colspan ='2'>Lower Total</td>
