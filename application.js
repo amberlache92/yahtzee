@@ -91,29 +91,38 @@ function fullHouse(){
 function smstraight(){
 	var score=0;
 	var x=dice_value.sort();
-	    x= x.join("");
-	 var r1= /\B(1234)/g;
-	    var a=x.match(r1);
-	 var r2= /\B(2345)/g;
-         var b= x.match(r2);
-	 var r3= /\B(3456)/g; 
+	    // removes duplicates
+	    x=x.filter(function(item,index,inputArray){
+               return x=inputArray.indexOf(item) ==index;
+              
+	    }).join("");
+	  var r1= /\B(1234)/g;
+	      var a= x.match(r1);
+	  var r2=/\B(2345)/g;
+	      var b= x.match(r2);
+	  var r3=/\B(3456)/g;
 	     var c= x.match(r3);
-	if(a=="1234" || b=="2345"|| c=="3456"){
-		score+= 30;
-		$('.sm').html(score);
-	}
 
+	    console.log(x);
+	    if(b== "2345" || a== "1234"|| c=="3456" || x== "12345"||x=="23456"){
+	    	console.log("hey  it works");
+	    		score+= 30;
+		$('.sm').html(score);
+	    }
+	     
+	
 }
 //lg straight
 function lgstraight(){
 	var score =0;
 	  var x= dice_value.sort();
 	     x=x.join("");
-	     if(x=="12345"|| "23456"){
+	     
+	     if(x=="12345"|| x=="23456"){
 	     	score+=40;
-	     	
+	     	    $('.lg').html(score);
 	     }
-	     $('.lg').html(score);
+	 
 }
 //chance
 function chance(){
