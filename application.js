@@ -93,10 +93,7 @@ function smstraight(){
 	var score=0;
 	var x=dice_value.sort();
 
-<<<<<<< HEAD
 
-=======
->>>>>>> combinations
 	    x= x.join("");
 	 var r1= /1/;
 	    var a=r1.test(x);
@@ -116,10 +113,7 @@ function smstraight(){
 	}
 	
 
-<<<<<<< HEAD
-=======
-	     
->>>>>>> combinations
+
 	
 }
 //lg straight
