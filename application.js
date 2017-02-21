@@ -91,6 +91,7 @@ function fullHouse(){
 function smstraight(){
 	var score=0;
 	var x=dice_value.sort();
+<<<<<<< Updated upstream
 	    x= x.join("");
 	 var r1= /1/;
 	    var a=r1.test(x);
@@ -110,13 +111,15 @@ function smstraight(){
 	}
 	
 
+	     
+	
 }
 //lg straight
 function lgstraight(){
 	var score =0;
 	  var x= dice_value.sort();
 	     x=x.join("");
-	     console.log(x);
+	     
 	     if(x=="12345"|| x=="23456"){
 	     	score+=40;
 	     	    $('.lg').html(score);
