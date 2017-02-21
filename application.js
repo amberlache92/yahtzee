@@ -93,6 +93,7 @@ function smstraight(){
 	var score=0;
 	var x=dice_value.sort();
 
+
 	    x= x.join("");
 	 var r1= /1/;
 	    var a=r1.test(x);
@@ -111,6 +112,7 @@ function smstraight(){
 		$('.sm').html(score);
 	}
 	
+
 	
 }
 //lg straight
