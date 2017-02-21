@@ -91,22 +91,23 @@ function fullHouse(){
 function smstraight(){
 	var score=0;
 	var x=dice_value.sort();
-	    // removes duplicates
-	    x=x.filter(function(item,index,inputArray){
-               return x=inputArray.indexOf(item) ==index;
-              
-	    }).join("");
-	  var r1= /\B(1234)/g;
-	      var a= x.match(r1);
-	  var r2=/\B(2345)/g;
-	      var b= x.match(r2);
-	  var r3=/\B(3456)/g;
-	     var c= x.match(r3);
 
-	    console.log(x);
-	    if(b== "2345" || a== "1234"|| c=="3456" || x== "12345"||x=="23456"){
-	    	console.log("hey  it works");
-	    		score+= 30;
+
+	    x= x.join("");
+	 var r1= /1/;
+	    var a=r1.test(x);
+	 var r2= /2/;
+         var b= r2.test(x);
+	 var r3= /3/; 
+	     var c= r3.test(x);
+	   var r4= /4/; 
+	     var d= r4.test(x);
+	   var r5= /5/; 
+	     var e= r5.test(x);
+	   var r6= /6/; 
+	     var f= r6.test(x);
+	if(a && b && c && d || b && c && d && e || c && d && e && f){
+		score+= 30;
 		$('.sm').html(score);
 	    }
 	     
