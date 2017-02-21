@@ -110,17 +110,14 @@ function smstraight(){
 	if(a && b && c && d || b && c && d && e || c && d && e && f){
 		score+= 30;
 		$('.sm').html(score);
-<<<<<<< HEAD
+
 	}
 	
 
-
-	
-=======
-	    }
+	   
 	     
 	return score;
->>>>>>> categories
+
 }
 //lg straight
 function lgstraight(){
