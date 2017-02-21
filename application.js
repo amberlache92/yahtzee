@@ -15,10 +15,10 @@ $(document).ready(function(){
   var sixes=0;
   var die;
   var score=0;
-  var called= false;
+  var rounds=13;
   //roll function
 	function roll(die,i){
-		called = true;
+		
 	    rando = Math.floor(Math.random()*6)+1;
 	    
 	     die.html("<img  src=images/die"+rando+".png>");
@@ -37,7 +37,7 @@ $(document).ready(function(){
   });
 // 3 of a kind
 function threeOfKind(){
-	var threeOfKind=0;
+	var score=0;
 	dice_value.sort();
 	console.log(dice_value);
 	for(var i=0; i< dice_value.length; i++){
@@ -45,25 +45,25 @@ function threeOfKind(){
 		   dice_value[1]== dice_value[2]&& dice_value[2]==dice_value[3]|| 
 			dice_value[2]==dice_value[3]&& dice_value[3]==dice_value[4]){
             
-               threeOfKind += dice_value[i];
-               $('.three_of_kind').html(threeOfKind);
+               score+= dice_value[i];
+               $('.three_of_kind').html(score);
 		}
 	}
-	 return threeOfKind;
+	 return score;
 }
 //four of a kind
 function fourOfKind(){
-	var fourOfKind=0;
+	var score=0;
 	dice_value.sort();
 	for(var i=0; i<dice_value.length;i++){
 		if(dice_value[0]==dice_value[1]&&dice_value[0]==dice_value[2]
 			&&dice_value[0]==dice_value[3]||dice_value[1]==dice_value[2]&&dice_value[2]==dice_value[3]
 			&&dice_value[3]==dice_value[4] ){
-			fourOfKind+= dice_value[i];
-		$('.four_of_kind').html(fourOfKind);
+			score+= dice_value[i];
+		$('.four_of_kind').html(score);
 		}
 	}
-	return fourOfKind;
+	return score;
 }
 //full house
 function fullHouse(){
@@ -85,7 +85,7 @@ function fullHouse(){
 	  	 $('.fullHouse').html(score);
 	  }
 	 
-	return fullHouse;
+	return score;
 }
 //sm straight
 function smstraight(){
@@ -110,11 +110,17 @@ function smstraight(){
 	if(a && b && c && d || b && c && d && e || c && d && e && f){
 		score+= 30;
 		$('.sm').html(score);
+<<<<<<< HEAD
 	}
 	
 
 
 	
+=======
+	    }
+	     
+	return score;
+>>>>>>> categories
 }
 //lg straight
 function lgstraight(){
@@ -126,6 +132,7 @@ function lgstraight(){
 	     	score+=40;
 	     	    $('.lg').html(score);
 	     }
+	     return score;
 	 
 }
 //chance
@@ -146,6 +153,7 @@ function yahtzee(){
        score+=50;
    $('.yatzee').html(score);
 	}
+	return score;
 }
 //fucntion to calculate the first 6 categories
 function firstSix(){
@@ -156,7 +164,7 @@ function firstSix(){
 	   	 
 	   	 ones +=1;
 	   	  
-	   	$('.oneScore').html(ones);
+	   	//$('.oneScore').html(ones);
 
 	   } 
 
@@ -166,7 +174,7 @@ function firstSix(){
 	   	  $('.twoScore').html(twos);
 	   	  
 	   } 
-	    $('.aceScore').html(ones);
+	    // $('.aceScore').html(ones);
 	    if( dice_value[i] == 3){
 	    	
 	   	 threes += 3;
@@ -200,7 +208,7 @@ function firstSix(){
          
 	
 }
-
+//calculates possibe scores
 $('.button2').click(function(){
 
     firstSix();
@@ -211,8 +219,31 @@ $('.button2').click(function(){
     lgstraight();
     chance();
     yahtzee();
+    $('.score').css('color','rgba(105,105,105,0.5');
 });
+// selects category to add score to
+function category(){
+var score =$('.score');
+  score.each(function(){
+        $(this).click(function(){
+        	if($(this).hasClass('aceScore')){
+        		  $(this).html(ones);
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        	}
+            //$('.score').not($(this)).html("");
+            if(!score.hasClass('chosen')){
+            	score.html("");
+            }
+        });
+      
+        rounds--;
+  });
 
+
+}
+category();
 
 //attaches roll funcition to each die
 $('.button').click(function(){
