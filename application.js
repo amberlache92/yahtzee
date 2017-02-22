@@ -154,7 +154,7 @@ function firstSix(a){
 	   if( dice_value[i] == 1){
 		   	
 	   	     ones +=1;
-	   
+	     $('.aceScore').html(ones);
 	   } 
 
 	   if( dice_value[i] == 2){
@@ -285,8 +285,63 @@ turnOver=false;
         		    turns=3;
         		    turnOver=true;
         	}
-      
-          
+          //lower section
+          if($(this).hasClass('three_of_kind')){
+        		  $(this).html(threeOfKind());
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        		    turnOver=true;
+        	}
+       if($(this).hasClass('four_of_kind')){
+        		  $(this).html(fourOfKind());
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        		    turnOver=true;
+        	}
+        	if($(this).hasClass('fullHouse')){
+        		  $(this).html(fullHouse());
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        		    turnOver=true;
+        	}
+        	if($(this).hasClass('three_of_kind')){
+        		  $(this).html(threeOfKind());
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        		    turnOver=true;
+        	}
+        	if($(this).hasClass('sm')){
+        		  $(this).html(smstraight());
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        		    turnOver=true;
+        	}
+        	if($(this).hasClass('lg')){
+        		  $(this).html(lgstraight());
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        		    turnOver=true;
+        	}
+        	if($(this).hasClass('yatzee')){
+        		  $(this).html(yahtzee());
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        		    turnOver=true;
+        	}
+        	if($(this).hasClass('chance')){
+        		  $(this).html(chance());
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        		    turnOver=true;
+        	}
       
                     rounds--;
         alert("there are "+ rounds + " left");
