@@ -14,7 +14,7 @@ $(document).ready(function(){
   var fives=0;
   var sixes=0;
   var die;
-  var score=0;
+  var turnOver=false;
   var rounds=13;
   //roll function
 	function roll(die,i){
@@ -93,7 +93,7 @@ function smstraight(){
 	var score=0;
 	var x=dice_value.sort();
 
-
+                      //
 	    x= x.join("");
 	 var r1= /1/;
 	    var a=r1.test(x);
@@ -153,37 +153,35 @@ function yahtzee(){
 	return score;
 }
 //fucntion to calculate the first 6 categories
-function firstSix(){
+function firstSix(a){
     for(var i=0; i< dice_value.length;i++){
     
     	
 	   if( dice_value[i] == 1){
-	   	 
-	   	 ones +=1;
-	   	  
-	   	//$('.oneScore').html(ones);
-
+		   	
+	   	     ones +=1;
+	     $('.aceScore').html(ones);
 	   } 
 
 	   if( dice_value[i] == 2){
 	   	 
 	   	 twos += 2;
 	   	  $('.twoScore').html(twos);
-	   	  
+	   	
 	   } 
 	    // $('.aceScore').html(ones);
 	    if( dice_value[i] == 3){
 	    	
 	   	 threes += 3;
 	   	  $('.threeScore').html(threes);
-	   	 
+	   	
 	   } 
 	   
 	    if( dice_value[i] == 4){
 	    	
 	   	 fours += 4;
 	   	  $('.fourScore').html(fours);
-	   	  
+	   	 
 	   } 
 	   
 	    if( dice_value[i] == 5){
@@ -196,18 +194,18 @@ function firstSix(){
 	   	  
 	   	 sixes += 6;
 	   	  $('.sixScore').html(sixes);
-	   	  
+
 	   } 
       
 	
 	}
 	turns =0;
-         
+       
 	
 }
 //calculates possibe scores
 $('.button2').click(function(){
-
+  $(this).prop('disabled',true);
     firstSix();
     threeOfKind();
     fourOfKind();
@@ -217,10 +215,15 @@ $('.button2').click(function(){
     chance();
     yahtzee();
     $('.score').css('color','rgba(105,105,105,0.5');
+    $('.die').removeClass('selected');
+    
 });
-// selects category to add score to
+
+
+
 function category(){
 var score =$('.score');
+turnOver=false;
   score.each(function(){
         $(this).click(function(){
         	if($(this).hasClass('aceScore')){
@@ -228,20 +231,142 @@ var score =$('.score');
         		    $(this).css('color','black');
         		    $(this).attr('class','chosen');
         		    turns=3;
+        		    
+        		   console.log(true); 
         	}
-            //$('.score').not($(this)).html("");
-            if(!score.hasClass('chosen')){
-            	score.html("");
-            }
-        });
+        	if($(this).hasClass('twoScore')){
+        		  $(this).html(twos);
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        		    
+                   turnOver=true;
+        	}
+        	if($(this).hasClass('threeScore')){
+        		  $(this).html(threes);
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        		    
+        		    turnOver=true;
+        	}
+        	if($(this).hasClass('fourScore')){
+        		  $(this).html(fours);
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        		    
+        		    turnOver=true;
+        	}
+        	if($(this).hasClass('fiveScore')){
+        		  $(this).html(fives);
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        		    
+        		    turnOver=true;
+        	}
+        	if($(this).hasClass('sixScore')){
+        		  $(this).html(sixes);
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        		    
+        		    turnOver=true;
+        	}
+          //lower section
+          if($(this).hasClass('three_of_kind')){
+        		  $(this).html(threeOfKind());
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        		    
+        		    turnOver=true;
+        	}
+       if($(this).hasClass('four_of_kind')){
+        		  $(this).html(fourOfKind());
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        		    
+        		    turnOver=true;
+        	}
+        	if($(this).hasClass('fullHouse')){
+        		  $(this).html(fullHouse());
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        		    
+        		    turnOver=true;
+        	}
+        	if($(this).hasClass('three_of_kind')){
+        		  $(this).html(threeOfKind());
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        		    
+        		    turnOver=true;
+        	}
+        	if($(this).hasClass('sm')){
+        		  $(this).html(smstraight());
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        		    turnOver=true;
+        	}
+        	if($(this).hasClass('lg')){
+        		  $(this).html(lgstraight());
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        		    
+        		    turnOver=true;
+        	}
+        	if($(this).hasClass('yatzee')){
+        		  $(this).html(yahtzee());
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+        		    
+        		    turnOver=true;
+        	}
+        	if($(this).hasClass('chance')){
+        		  $(this).html(chance());
+        		    $(this).css('color','black');
+        		    $(this).attr('class','chosen');
+        		    turns=3;
+
+        		    turnOver=true;
+        	}
       
-        rounds--;
+                    rounds--;
+        alert("there are "+ rounds + " left");
+     if(turnOver){
+          //removes other scores if not selected and resets counters back to zero
+     
+       	  
+          $('.score').html('');
+         $('.button2').prop("disabled",false);
+         $('.die').css('border','');
+          ones=0;
+          twos=0;
+          threes=0;
+          fours=0;
+          fives=0;
+          sixes=0;
+	
+	     $('.die').empty();
+}
+        });
+     
   });
 
 
 }
+
 category();
 
+ 
 //attaches roll funcition to each die
 $('.button').click(function(){
    
@@ -285,7 +410,10 @@ $('.button').click(function(){
  
 	  
 	
-	
+//add error messages,
+//add adding of scores at end of game	
+
+//highlight roll button and calcualte button when it needs to be pressed
 
  
 
