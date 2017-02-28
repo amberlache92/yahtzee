@@ -223,15 +223,28 @@ $('.button2').click(function(){
 
 function category(){
 var score =$('.score');
-turnOver=false;
+
+
+ 
+    $('td').click(function(){
+ 	if($(this).hasClass('chosen')){
+ 		
+ 	  alert('im clicked');
+ 	  turnOver=false;
+ 	}
+
+ });
+
+
   score.each(function(){
         $(this).click(function(){
+
         	if($(this).hasClass('aceScore')){
         		  $(this).html(ones);
         		    $(this).css('color','black');
         		    $(this).attr('class','chosen');
         		    turns=3;
-        		    
+        		    $('.warning').html('');
         		   console.log(true); 
         	}
         	if($(this).hasClass('twoScore')){
@@ -239,7 +252,7 @@ turnOver=false;
         		    $(this).css('color','black');
         		    $(this).attr('class','chosen');
         		    turns=3;
-        		    
+        		    $('.warning').html('');
                    turnOver=true;
         	}
         	if($(this).hasClass('threeScore')){
@@ -247,7 +260,7 @@ turnOver=false;
         		    $(this).css('color','black');
         		    $(this).attr('class','chosen');
         		    turns=3;
-        		    
+        		    $('.warning').html('');
         		    turnOver=true;
         	}
         	if($(this).hasClass('fourScore')){
@@ -255,7 +268,7 @@ turnOver=false;
         		    $(this).css('color','black');
         		    $(this).attr('class','chosen');
         		    turns=3;
-        		    
+        		    $('.warning').html('');
         		    turnOver=true;
         	}
         	if($(this).hasClass('fiveScore')){
@@ -263,7 +276,7 @@ turnOver=false;
         		    $(this).css('color','black');
         		    $(this).attr('class','chosen');
         		    turns=3;
-        		    
+        		    $('.warning').html('');
         		    turnOver=true;
         	}
         	if($(this).hasClass('sixScore')){
@@ -271,7 +284,7 @@ turnOver=false;
         		    $(this).css('color','black');
         		    $(this).attr('class','chosen');
         		    turns=3;
-        		    
+        		    $('.warning').html('');
         		    turnOver=true;
         	}
           //lower section
@@ -280,7 +293,7 @@ turnOver=false;
         		    $(this).css('color','black');
         		    $(this).attr('class','chosen');
         		    turns=3;
-        		    
+        		    $('.warning').html('');
         		    turnOver=true;
         	}
        if($(this).hasClass('four_of_kind')){
@@ -288,7 +301,7 @@ turnOver=false;
         		    $(this).css('color','black');
         		    $(this).attr('class','chosen');
         		    turns=3;
-        		    
+        		    $('.warning').html('');
         		    turnOver=true;
         	}
         	if($(this).hasClass('fullHouse')){
@@ -296,7 +309,7 @@ turnOver=false;
         		    $(this).css('color','black');
         		    $(this).attr('class','chosen');
         		    turns=3;
-        		    
+        		    $('.warning').html('');
         		    turnOver=true;
         	}
         	if($(this).hasClass('three_of_kind')){
@@ -304,7 +317,7 @@ turnOver=false;
         		    $(this).css('color','black');
         		    $(this).attr('class','chosen');
         		    turns=3;
-        		    
+        		    $('.warning').html('');
         		    turnOver=true;
         	}
         	if($(this).hasClass('sm')){
@@ -312,6 +325,7 @@ turnOver=false;
         		    $(this).css('color','black');
         		    $(this).attr('class','chosen');
         		    turns=3;
+        		    $('.warning').html('');
         		    turnOver=true;
         	}
         	if($(this).hasClass('lg')){
@@ -319,7 +333,7 @@ turnOver=false;
         		    $(this).css('color','black');
         		    $(this).attr('class','chosen');
         		    turns=3;
-        		    
+        		    $('.warning').html('');
         		    turnOver=true;
         	}
         	if($(this).hasClass('yatzee')){
@@ -327,7 +341,7 @@ turnOver=false;
         		    $(this).css('color','black');
         		    $(this).attr('class','chosen');
         		    turns=3;
-        		    
+        		    $('.warning').html('');
         		    turnOver=true;
         	}
         	if($(this).hasClass('chance')){
@@ -335,16 +349,15 @@ turnOver=false;
         		    $(this).css('color','black');
         		    $(this).attr('class','chosen');
         		    turns=3;
-
+                    $('.warning').html('');
         		    turnOver=true;
         	}
-      
-                    rounds--;
+               
         alert("there are "+ rounds + " left");
-     if(turnOver){
+     if(turnOver==true){
           //removes other scores if not selected and resets counters back to zero
      
-       	  
+       	  rounds--;
           $('.score').html('');
          $('.button2').prop("disabled",false);
          $('.die').css('border','');
@@ -357,8 +370,13 @@ turnOver=false;
 	
 	     $('.die').empty();
 }
+ else{
+        	$('.warning').html('select another category for points or a zero');
+        }
         });
+       
      
+
   });
 
 
@@ -413,7 +431,7 @@ $('.button').click(function(){
 //add error messages,
 //add adding of scores at end of game	
 
-//highlight roll button and calcualte button when it needs to be pressed
+//error for when categories are clicked and was not rolled again
 
  
 
