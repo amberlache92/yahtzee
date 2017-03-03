@@ -15,7 +15,7 @@ $(document).ready(function(){
   var sixes=0;
   var die;
   var turnOver=false;
-  var rounds=13;
+  var rounds=12;
   //roll function
 	function roll(die,i){
 		
@@ -220,7 +220,7 @@ $('.button2').click(function(){
 });
 
 
-
+//to add points to score board
 function category(){
 var score =$('.score');
 
@@ -244,6 +244,7 @@ var score =$('.score');
         		    $(this).css('color','black');
         		    $(this).attr('class','chosen');
         		    turns=3;
+        		    turnOver=true;
         		    $('.warning').html('');
         		   console.log(true); 
         	}
@@ -353,7 +354,55 @@ var score =$('.score');
         		    turnOver=true;
         	}
                
-        alert("there are "+ rounds + " left");
+        // alert("there are "+ rounds + " left");
+        if(rounds==0){
+        	
+        	//upper section adding up score
+        	var oneScore= $('.chosen').eq(0).html();
+        	     oneScore= parseInt(oneScore);
+        	
+        	   oneScore=parseInt(oneScore);
+        	var twoScore=$('.chosen').eq(1).html();
+        	  twoScore=parseInt(twoScore);
+        	var threeScore=$('.chosen').eq(2).html();
+        	 threeScore=parseInt(threeScore);
+        	var fourScore=$('.chosen').eq(3).html();
+        	  fourScore=parseInt(fourScore);
+        	var fiveScore=$('.chosen').eq(4).html();
+        	  fiveScore=parseInt(fiveScore);
+        	var sixScore=$('.chosen').eq(5).html();
+        	   sixScore=parseInt(sixScore);
+        	  var top= oneScore+twos+threeScore+fourScore+fiveScore+sixScore;
+        	  $('.totalScore').html(top);
+        	  if(top >=63){
+        	  	  $('.bonus').html(35);
+        	  	  top+=35;
+        	  	
+        	  }
+        	    $('.upperScore').html(top);
+        	//lower section adding up score
+        		var threeOfKindScore= $('.chosen').eq(6).html();
+        	     threeOfKindScore= parseInt(threeOfKindScore);
+        	
+        	   
+        	var fourOfKindScore=$('.chosen').eq(7).html();
+        	  fourOfKindScore=parseInt(fourOfKindScore);
+        	var fhScore=$('.chosen').eq(8).html();
+        	 fhScore=parseInt(fhScore);
+        	var smScore=$('.chosen').eq(9).html();
+        	  smScore=parseInt(smScore);
+        	var lgScore=$('.chosen').eq(10).html();
+        	  lgScore=parseInt(lgScore);
+        	var yahtzeeScore=$('.chosen').eq(11).html();
+        	   yahtzeeScore=parseInt(yahtzeeScore);
+         var chanceScore=$('.chosen').eq(12).html();
+             chanceScore=parseInt(chanceScore);
+        	  var bottom= fourOfKindScore +threeOfKindScore+fhScore+smScore+lgScore+yahtzeeScore+chanceScore;
+        	  $('.lowerScore').html(bottom);
+            $('.combinedScore').html(bottom+top);
+            alert('game over your score is ');
+
+        }
      if(turnOver==true){
           //removes other scores if not selected and resets counters back to zero
      
@@ -379,10 +428,12 @@ var score =$('.score');
 
   });
 
-
 }
 
+
+
 category();
+
 
  
 //attaches roll funcition to each die
@@ -428,13 +479,13 @@ $('.button').click(function(){
  
 	  
 	
-//add error messages,
-//add adding of scores at end of game	
+
+
 
 //error for when categories are clicked and was not rolled again
 
  
-
+//fix html
 
 
  
