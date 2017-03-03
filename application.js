@@ -15,6 +15,7 @@ $(document).ready(function(){
   var sixes=0;
   var die;
   var turnOver=false;
+  var select=false;
   var rounds=12;
   //roll function
 	function roll(die,i){
@@ -216,6 +217,8 @@ $('.button2').click(function(){
     yahtzee();
     $('.score').css('color','rgba(105,105,105,0.5');
     $('.die').removeClass('selected');
+    select=true;
+
     
 });
 
@@ -234,10 +237,11 @@ var score =$('.score');
  	}
 
  });
-
+score.bind('click');
 
   score.each(function(){
         $(this).click(function(){
+          if(select==true){
 
         	if($(this).hasClass('aceScore')){
         		  $(this).html(ones);
@@ -245,8 +249,9 @@ var score =$('.score');
         		    $(this).attr('class','chosen');
         		    turns=3;
         		    turnOver=true;
+                
         		    $('.warning').html('');
-        		   console.log(true); 
+        		   
         	}
         	if($(this).hasClass('twoScore')){
         		  $(this).html(twos);
@@ -255,6 +260,7 @@ var score =$('.score');
         		    turns=3;
         		    $('.warning').html('');
                    turnOver=true;
+                   
         	}
         	if($(this).hasClass('threeScore')){
         		  $(this).html(threes);
@@ -263,6 +269,7 @@ var score =$('.score');
         		    turns=3;
         		    $('.warning').html('');
         		    turnOver=true;
+                
         	}
         	if($(this).hasClass('fourScore')){
         		  $(this).html(fours);
@@ -271,6 +278,7 @@ var score =$('.score');
         		    turns=3;
         		    $('.warning').html('');
         		    turnOver=true;
+                
         	}
         	if($(this).hasClass('fiveScore')){
         		  $(this).html(fives);
@@ -279,6 +287,7 @@ var score =$('.score');
         		    turns=3;
         		    $('.warning').html('');
         		    turnOver=true;
+                
         	}
         	if($(this).hasClass('sixScore')){
         		  $(this).html(sixes);
@@ -287,6 +296,7 @@ var score =$('.score');
         		    turns=3;
         		    $('.warning').html('');
         		    turnOver=true;
+                
         	}
           //lower section
           if($(this).hasClass('three_of_kind')){
@@ -296,6 +306,7 @@ var score =$('.score');
         		    turns=3;
         		    $('.warning').html('');
         		    turnOver=true;
+                
         	}
        if($(this).hasClass('four_of_kind')){
         		  $(this).html(fourOfKind());
@@ -304,6 +315,7 @@ var score =$('.score');
         		    turns=3;
         		    $('.warning').html('');
         		    turnOver=true;
+                
         	}
         	if($(this).hasClass('fullHouse')){
         		  $(this).html(fullHouse());
@@ -312,6 +324,7 @@ var score =$('.score');
         		    turns=3;
         		    $('.warning').html('');
         		    turnOver=true;
+                
         	}
         	if($(this).hasClass('three_of_kind')){
         		  $(this).html(threeOfKind());
@@ -320,6 +333,7 @@ var score =$('.score');
         		    turns=3;
         		    $('.warning').html('');
         		    turnOver=true;
+                
         	}
         	if($(this).hasClass('sm')){
         		  $(this).html(smstraight());
@@ -328,6 +342,7 @@ var score =$('.score');
         		    turns=3;
         		    $('.warning').html('');
         		    turnOver=true;
+                
         	}
         	if($(this).hasClass('lg')){
         		  $(this).html(lgstraight());
@@ -336,6 +351,7 @@ var score =$('.score');
         		    turns=3;
         		    $('.warning').html('');
         		    turnOver=true;
+                
         	}
         	if($(this).hasClass('yatzee')){
         		  $(this).html(yahtzee());
@@ -344,6 +360,7 @@ var score =$('.score');
         		    turns=3;
         		    $('.warning').html('');
         		    turnOver=true;
+                
         	}
         	if($(this).hasClass('chance')){
         		  $(this).html(chance());
@@ -352,9 +369,10 @@ var score =$('.score');
         		    turns=3;
                     $('.warning').html('');
         		    turnOver=true;
+                
         	}
-               
-        // alert("there are "+ rounds + " left");
+            
+        }
         if(rounds==0){
         	
         	//upper section adding up score
@@ -405,7 +423,8 @@ var score =$('.score');
         }
      if(turnOver==true){
           //removes other scores if not selected and resets counters back to zero
-     
+     alert(rounds);
+     alert(turnOver);
        	  rounds--;
           $('.score').html('');
          $('.button2').prop("disabled",false);
@@ -416,26 +435,36 @@ var score =$('.score');
           fours=0;
           fives=0;
           sixes=0;
-	
-	     $('.die').empty();
-}
- else{
-        	$('.warning').html('select another category for points or a zero');
+	      select=false;
+        if(select==false){
+           rounds++;
+           $('.warning').html('sorry you need to roll first');
         }
+
+}
+
+
+ else{
+        	$('.warning').html('r category for points or a zero');
+         
+        }
+
+        
         });
-       
-     
+ // if(){
+ // 
+ // }
 
   });
 
-}
 
+
+
+}
 
 
 category();
 
-
- 
 //attaches roll funcition to each die
 $('.button').click(function(){
    
