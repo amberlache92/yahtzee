@@ -217,7 +217,7 @@ $('.button2').click(function(){
     yahtzee();
     $('.score').css('color','rgba(105,105,105,0.5');
     $('.die').removeClass('selected');
-    select=true;
+    select=true; //variable ensures that other categories can not be selected if didnt roll dice first;
 
     
 });
@@ -237,11 +237,11 @@ var score =$('.score');
  	}
 
  });
-score.bind('click');
+
 
   score.each(function(){
         $(this).click(function(){
-          if(select==true){
+          if(select==true){ 
 
         	if($(this).hasClass('aceScore')){
         		  $(this).html(ones);
@@ -371,8 +371,13 @@ score.bind('click');
         		    turnOver=true;
                 
         	}
+          
             
         }
+        else{
+          rounds++;
+        }
+        // this calculates the score
         if(rounds==0){
         	
         	//upper section adding up score
@@ -426,6 +431,7 @@ score.bind('click');
      alert(rounds);
      alert(turnOver);
        	  rounds--;
+           $('.die').empty();
           $('.score').html('');
          $('.button2').prop("disabled",false);
          $('.die').css('border','');
@@ -435,30 +441,18 @@ score.bind('click');
           fours=0;
           fives=0;
           sixes=0;
-	      select=false;
-        if(select==false){
-           rounds++;
-           $('.warning').html('sorry you need to roll first');
-        }
+	      select=false; //cant select anymore after turn is over
+        
 
 }
 
 
- else{
-        	$('.warning').html('r category for points or a zero');
-         
-        }
 
         
         });
- // if(){
- // 
- // }
+ 
 
   });
-
-
-
 
 }
 
