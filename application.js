@@ -229,7 +229,7 @@ $('.button2').click(function(){
     $('.score').css('color','rgba(105,105,105,0.5');
     $('.die').removeClass('selected');
     select=true; //variable ensures that other categories can not be selected if didnt roll dice first;
-
+  $(this).css('border','');
     
 });
 
@@ -252,7 +252,7 @@ var score =$('.score');
 
   score.each(function(){
         $(this).click(function(){
-
+         
    
           if(select==true){ 
 
@@ -536,8 +536,7 @@ $('.button').click(function(){
 
 
 
- 
-//fix html
+
 
 //if push calculate and there are no dice then error
 
