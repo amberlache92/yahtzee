@@ -28,11 +28,16 @@ $(document).ready(function(){
           dice_value[i]=rando;
         
 	   $('img').height(50);
+
 	  
 	};
-
-  
-
+ var image=$('img');
+ if(image.length==0){
+   $('.button2').prop('disabled',true);
+ }    
+ else{
+  $('.button2').prop('disabled',false);
+ }
 	$('.die').click(function(){
          $(this).toggleClass('selected');   //adds border around die if clicked
   });
@@ -204,6 +209,12 @@ function firstSix(a){
        
 	
 }
+
+if(select){
+   $('.button2').prop('disabled',true);
+   alert('button disabled');
+}
+
 //calculates possibe scores
 $('.button2').click(function(){
   $(this).prop('disabled',true);
@@ -232,7 +243,7 @@ var score =$('.score');
     $('td').click(function(){
  	if($(this).hasClass('chosen')){
  		
- 	  alert('im clicked');
+ 	
  	  turnOver=false;
  	}
 
@@ -241,6 +252,8 @@ var score =$('.score');
 
   score.each(function(){
         $(this).click(function(){
+
+   
           if(select==true){ 
 
         	if($(this).hasClass('aceScore')){
@@ -324,7 +337,8 @@ var score =$('.score');
         		    turns=3;
         		    $('.warning').html('');
         		    turnOver=true;
-                
+                        
+
         	}
         	if($(this).hasClass('three_of_kind')){
         		  $(this).html(threeOfKind());
@@ -333,7 +347,8 @@ var score =$('.score');
         		    turns=3;
         		    $('.warning').html('');
         		    turnOver=true;
-                
+                       
+
         	}
         	if($(this).hasClass('sm')){
         		  $(this).html(smstraight());
@@ -342,7 +357,7 @@ var score =$('.score');
         		    turns=3;
         		    $('.warning').html('');
         		    turnOver=true;
-                
+                       
         	}
         	if($(this).hasClass('lg')){
         		  $(this).html(lgstraight());
@@ -351,7 +366,8 @@ var score =$('.score');
         		    turns=3;
         		    $('.warning').html('');
         		    turnOver=true;
-                
+                       
+
         	}
         	if($(this).hasClass('yatzee')){
         		  $(this).html(yahtzee());
@@ -360,7 +376,8 @@ var score =$('.score');
         		    turns=3;
         		    $('.warning').html('');
         		    turnOver=true;
-                
+                        select=false;
+
         	}
         	if($(this).hasClass('chance')){
         		  $(this).html(chance());
@@ -369,10 +386,13 @@ var score =$('.score');
         		    turns=3;
                     $('.warning').html('');
         		    turnOver=true;
-                
+                        
+
         	}
           
-            
+        
+ 
+  
         }
         else{
           rounds++;
@@ -424,12 +444,17 @@ var score =$('.score');
         	  $('.lowerScore').html(bottom);
             $('.combinedScore').html(bottom+top);
             alert('game over your score is ');
+            $('.button').prop('disabled',true);
+            $('.button2').html('Start new game');
+              $('.button2').click(function(){
+                    location.reload();//resets game
+              });
 
         }
      if(turnOver==true){
           //removes other scores if not selected and resets counters back to zero
      alert(rounds);
-     alert(turnOver);
+     
        	  rounds--;
            $('.die').empty();
           $('.score').html('');
@@ -441,12 +466,15 @@ var score =$('.score');
           fours=0;
           fives=0;
           sixes=0;
-	      select=false; //cant select anymore after turn is over
-        
+	      select=false; //cant select anymore categories after turn is over
+       
+  
 
 }
 
-
+else{
+  $('.warning').html('pick another category or choose a zero somewhere');
+}
 
         
         });
@@ -461,8 +489,9 @@ category();
 
 //attaches roll funcition to each die
 $('.button').click(function(){
-   
-	     
+     $('.button2').prop('disabled',false);
+	    
+
 	 for(i=0; i<=turns; turns--){
 	      if(turns>0){
 		    dice =[die1,die2,die3,die4,die5];
@@ -488,7 +517,8 @@ $('.button').click(function(){
             }
 	   
 		  else{
-			$('.warning').html('Pick a category!');
+			$('.warning').html('calculate your score and choose a category!');
+      $('.button2').css('border','2px solid yellow');
 		}
 
      
@@ -505,11 +535,11 @@ $('.button').click(function(){
 
 
 
-//error for when categories are clicked and was not rolled again
 
  
 //fix html
 
+//if push calculate and there are no dice then error
 
  
 });
