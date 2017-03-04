@@ -210,10 +210,8 @@ function firstSix(a){
 	
 }
 
-if(select){
-   $('.button2').prop('disabled',true);
-   alert('button disabled');
-}
+
+
 
 //calculates possibe scores
 $('.button2').click(function(){
@@ -391,7 +389,8 @@ var score =$('.score');
         	}
           
         
- 
+         alert('button should be disabled');
+         $('.button2').prop('disabled',true);
   
         }
         else{
@@ -454,11 +453,11 @@ var score =$('.score');
      if(turnOver==true){
           //removes other scores if not selected and resets counters back to zero
      alert(rounds);
-     
+     alert(turnOver);
        	  rounds--;
            $('.die').empty();
           $('.score').html('');
-         $('.button2').prop("disabled",false);
+         // $('.button2').prop("disabled",false);
          $('.die').css('border','');
           ones=0;
           twos=0;
