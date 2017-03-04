@@ -35,9 +35,7 @@ $(document).ready(function(){
  if(image.length==0){
    $('.button2').prop('disabled',true);
  }    
- else{
-  $('.button2').prop('disabled',false);
- }
+ 
 	$('.die').click(function(){
          $(this).toggleClass('selected');   //adds border around die if clicked
   });
@@ -389,7 +387,7 @@ var score =$('.score');
         	}
           
         
-         alert('button should be disabled');
+       
          $('.button2').prop('disabled',true);
   
         }
@@ -452,8 +450,7 @@ var score =$('.score');
         }
      if(turnOver==true){
           //removes other scores if not selected and resets counters back to zero
-     alert(rounds);
-     alert(turnOver);
+    
        	  rounds--;
            $('.die').empty();
           $('.score').html('');
@@ -537,7 +534,6 @@ $('.button').click(function(){
 
 
 
-//if push calculate and there are no dice then error
 
  
 });
