@@ -137,6 +137,26 @@
 
 	 </table>
 </div> <!--  board div -->
+<div id="rules">
+	<h2>Yahtzee rules</h2>
+	<h3>Objective</h3>
+	<p>This is a game of stratedgy and chance. You goal is to get the highest score from 5 dice. There are 13 rounds. In each round you are allowed up to 3 rolls enabling you to reroll any of the die again.Each category scores differently.At the end of the game your score is then calculated<p>
+
+	<h2>Upper section</h2>
+	<p>Your scores in this section is the total of the die chosen. For example if you roll 5 -2-3-5-5 you can choose to add up all the fives or twos or threes. If you choose any other category that does not have a possible score in them you will recieve a zero in that space.</p>
+	<p>You receive a bounus of 35 points if your upper section scores at least a 63.</p>
+
+	<h2>Lower Section</h2>
+	<p> In the lower section you eithr get a set amount or azero if you do not have any other possible scores</p>
+	<ul>
+		<li><b>3 and 4 of a kind</b>, for 3 of a kind you must have a least 3 die faces taht are the same. For 4 of a kind you must have at least 4 die faces be the same.</li>
+		<li><b>small straight</b>, is a sequence of at least 4 die faces in a row. Example 2-3-4-5< for a score of 30.</li>
+		<li><b>large straight</b>, is a sequence of a least 5 die faces in a row.Example 1-2-3-4-5 for a score of 40.</li>
+		<li><b>Full house</b>, is when you have a 3 of a kind and 2 of a kind. Example 1-1-2-2-2 for a score of 25</li>
+		<li><b>Yahtzee</b>, is 5 of a kind for a score of 50 points. Unlike most games there are no bonus yahtzees. </li>
+		<li><b>Chance</b>, is basically a free category where the values of all the die are added up for points.</li>
+	</ul>
+</div>
 
 </body>
-</html>
+</html> 
